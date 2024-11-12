@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Reclaim } from "@reclaimprotocol/js-sdk";
+import { transformForOnchain } from "@reclaimprotocol/js-sdk";
 import { Button } from "./components/Button";
 import transformSignatures from "./utils/transformSignatures";
 import { ClipLoader } from "react-spinners";
@@ -76,7 +76,7 @@ export default function VerifyProof(props: any) {
   };
 
   useEffect(() => {
-    const newProof = Reclaim.transformForOnchain(props.proof);
+    const newProof = transformForOnchain(props.proof);
     // @ts-ignore
     setProof(newProof);
   }, [props.proof]);
